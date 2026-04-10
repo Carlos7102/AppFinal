@@ -70,6 +70,14 @@ export default function HomeScreen() {
         {cursosFiltered.map((curso, index) => (
           <TouchableOpacity  key={curso.nome + index} style={styles.botao} onPress={() => router.push(`/cursos/0`)}>
            
+           <View style={{flexDirection: "row", alignItems: "center", gap: 10}}> 
+            <Image
+             source={{uri: curso.logo}}
+             style={{height: 30, width: 30, borderRadius: 30}}
+            />
+            <Text style={styles.textoBt2}>{curso.categoria}</Text>
+           </View>
+
             <Text style={{fontSize: 19, fontWeight: "600", marginTop: 5}}>{curso.nome}</Text>
             
             <View style={{flexDirection: "row"}}>
@@ -131,7 +139,7 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
   },
   scroll: {
-    backgroundColor: "white",
+    backgroundColor: 'rgba(219, 219, 219, 0.36)',
     marginHorizontal: 30,
     borderRadius: 10,
   },
@@ -139,7 +147,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     backgroundColor: "white",
     width: "100%",
-    height: 250,
+    height: 300,
     borderRadius: 20,
     marginVertical: 10,
     paddingLeft: 10,
@@ -147,8 +155,8 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   }, 
   cardBotao: {
-    width: 140,
-    height: 50, 
+    width: 120,
+    height: 40, 
     borderRadius: 30, 
     alignItems: "center", 
     justifyContent: "center", 
@@ -157,9 +165,14 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   textoBt: {
-    fontSize: 13,
+    fontSize: 11,
     marginVertical: 1,
     fontWeight: "400"
+  },
+   textoBt2: {
+    fontSize: 13,
+    marginVertical: 1,
+    fontWeight: "800"
   },
   botao2:{
     backgroundColor: "black",

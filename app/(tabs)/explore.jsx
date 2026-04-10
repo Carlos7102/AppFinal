@@ -1,10 +1,14 @@
-import { View, StyleSheet, TextInput, ScrollView, Image, Text, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TextInput, ScrollView, Image, Text, TouchableOpacity, ImageBackground } from 'react-native';
 import { videos } from "../../lib/videos"
 import { cursos } from "../../lib/cursos"
+import { router } from "expo-router"
 
 export default function TabTwoScreen() { 
 
+  const image = require('../../assets/images/fundo.jpg')
+
   return (
+     <ImageBackground source={image} resizeMode="cover" style={styles.image}> 
      <View style={styles.Container}>
 
        <TextInput
@@ -15,25 +19,23 @@ export default function TabTwoScreen() {
         <Text style={styles.texto}>Videos</Text>
 
        
-       <ScrollView style={{backgroundColor: "white"}} horizontal showsHorizontalScrollIndicator={false}>
-       <View style={{flexDirection: "row",backgroundColor: "gray", height: 220, alignItems: "center"}}> 
+       <ScrollView style={{backgroundColor: "white", height: 75}} horizontal showsHorizontalScrollIndicator={false}>
+       <View style={{borderRadius: 20, flexDirection: "row",backgroundColor: "gray", height: 220, alignItems: "center"}}> 
         {videos.map((video, index) => (
-            <TouchableOpacity key={video.titulo + index} style={styles.card}>
-                   <Text>{video.link}</Text>
-                  <Text>{video.titulo}</Text>
+            <TouchableOpacity key={video.titulo + index} style={styles.card} onPress={() => router.push(`/videos/0`)}>  
+               
             </TouchableOpacity>
         ))}
-         </View>
+        </View>
         </ScrollView> 
 
          <Text style={styles.texto}>Cursos</Text>
 
         <ScrollView style={{backgroundColor: "white"}} horizontal showsHorizontalScrollIndicator={false}>
-        <View style={{flexDirection: "row", backgroundColor: "gray", height: 220, alignItems: "center"}}> 
+        <View style={{borderRadius: 20, flexDirection: "row", backgroundColor: "gray", height: 220, alignItems: "center"}}> 
         {videos.map((video, index) => (
             <TouchableOpacity key={video.titulo + index} style={styles.card}>
-                   <Text>{video.link}</Text>
-                  <Text>{video.titulo}</Text>
+                  
             </TouchableOpacity>
         ))}
         </View>
@@ -41,6 +43,7 @@ export default function TabTwoScreen() {
         
 
      </View>
+     </ImageBackground>
   );
 }
 
@@ -61,7 +64,7 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
   },
   texto: {
-    marginTop: 22,
+    marginTop: 32,
     marginLeft: 30,
     fontWeight: "700",
     fontSize: 20,
@@ -76,5 +79,9 @@ const styles = StyleSheet.create({
     
     
 
-  }
+  },
+   image: {
+    flex: 1,
+    justifyContent: 'center', 
+  },
 });

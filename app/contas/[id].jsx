@@ -9,19 +9,19 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 export default function Contas(){
 
     const { id } = useLocalSearchParams();
-
+    
     const conta = contas.find(conta => conta.id === Number(id))
 
     const image = require('../../assets/images/fundoDados.jpg')
 
     return(
         <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-        <View>
            <TouchableOpacity style={styles.botao} onPress={() => router.push(`../`)}>
                <Ionicons name="return-down-back" size={30} color="black" />
            </TouchableOpacity>
-          
-           <View style={styles.container}>
+        <View style={styles.container}>
+      
+           <View style={styles.card1}>
               <View style={{alignItems: "center", marginVertical: 10}}> 
               <Text style={styles.title}>Dados Pessoais</Text>
               <Image
@@ -31,45 +31,45 @@ export default function Contas(){
             </View>
              
               <Text style={styles.text}>Nome: {conta.nome}</Text>
-             
-              <Text style={styles.text}>Endereço: {conta.endereco}</Text>
-              <Text style={styles.text}>Telefone: {conta.telefone}</Text>
-              <Text style={styles.text}>Gmail: {conta.gmail}</Text>
-              <Text style={styles.text}>Bairro: {conta.bairro}</Text>
-              <Text style={styles.text}>CPF: {conta.cpf}</Text>
               <Text style={styles.text}>Idade: {conta.idade}</Text>
               <Text style={styles.text}>Genero: {conta.genero}</Text>
-              <Text style={styles.text}>Estado Civil: {conta.estadoCivil}</Text>
-              <Text style={styles.text}>Documentação: {conta.documentacao}</Text>  
-
+              <Text style={styles.text}>Escola: {conta.escola}</Text>
+            </View>
+           
               <TouchableOpacity style={styles.botao2}>
-                <Text style={{fontWeight: "500"}}>Editar Dados</Text>
+                <Text style={{fontWeight: "500"}}>Editar Perfil</Text>
               </TouchableOpacity>
 
-           </View>
+
+              <View style={styles.card2}>
+
+              </View>
         </View>
         </ImageBackground>
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor: 'rgba(247, 255, 251, 0.36)',
-        width: "100%",
-        height: 500,
+  container: {
+    alignItems: "center"
+  },
+    card1: {
+        backgroundColor: 'rgb(14, 34, 90)',
+        width: "95%",
+        height: 290,
         marginTop: 20,
-        borderRadius: 30,
+        borderRadius: 30, 
         
     },
     botao: {
-        width: 90,
+        width: 60,
         height: 35,
         alignItems: "center",
         justifyContent: "center",
         marginTop: 40,
         marginLeft: 12,
         borderWidth: 1,
-        borderRadius: 10,
+        borderRadius: 50,
         backgroundColor: "white"
     },
     title: {
@@ -78,8 +78,8 @@ const styles = StyleSheet.create({
         color: "white",
     },
     text:{
-      color: "black",
-      fontWeight: "400",
+      color: "white",
+      fontWeight: "500",
       marginTop: 2,
       marginLeft: 15,
     },
@@ -93,7 +93,14 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: "20",
+    marginTop: 20,
     marginHorizontal: 155,
+  },
+  card2: {
+    backgroundColor: "gray",
+    width: "95%",
+    height: 200,
+    borderRadius: 30, 
+    marginTop: 20,
   }
 })
