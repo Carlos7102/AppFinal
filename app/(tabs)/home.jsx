@@ -1,4 +1,5 @@
-import {StyleSheet, View, Text, Image, TextInput, ScrollView, Touchable, TouchableOpacity,  ImageBackground } from 'react-native';
+import {StyleSheet, View, Text, Image, TextInput, ScrollView, TouchableOpacity,  ImageBackground } from 'react-native';
+
 import { cursos } from "../../lib/cursos"
 import { router } from "expo-router"
 import { contas } from "../../lib/contas"
@@ -8,6 +9,7 @@ import Feather from '@expo/vector-icons/Feather';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useState } from "react"
+
 
 export default function HomeScreen() {
 
@@ -24,14 +26,20 @@ export default function HomeScreen() {
     .filter((curso) => tipo === "Ambos" || curso.tipos.some(( g ) => g.texto === tipo))
 
   const image = require('../../assets/images/fundo.jpg')
-  
+
   return (
+     
+
      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+
+    
+
     <View style={styles.Container}>
 
       <View style={{ width: "100%", height: 90, marginTop: 28}}>
         
-          <TouchableOpacity style={{width: 0, height: 0}} onPress={() => router.push(`/contas/0`)}>
+    
+          <TouchableOpacity style={{width: 0, height: 0}} onPress={() => router.push(`/contas/${contas.id}`)}>
             {contas.map((contas, index ) => (                 
 
             <Image
@@ -68,8 +76,8 @@ export default function HomeScreen() {
            
       <ScrollView style={styles.scroll}> 
         {cursosFiltered.map((curso, index) => (
-          <TouchableOpacity  key={curso.nome + index} style={styles.botao} onPress={() => router.push(`/cursos/0`)}>
-           
+          <TouchableOpacity  key={curso.nome + index} style={styles.botao} onPress={() => router.push(`/cursos/${curso.id}`)}>
+        
            <View style={{flexDirection: "row", alignItems: "center", gap: 10}}> 
             <Image
              source={{uri: curso.logo}}
@@ -184,6 +192,6 @@ const styles = StyleSheet.create({
 
     image: {
     flex: 1,
-    justifyContent: 'center', // Centraliza o conteúdo filho
+    justifyContent: 'center', 
   },
 })

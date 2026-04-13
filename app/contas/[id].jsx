@@ -24,10 +24,10 @@ export default function Contas(){
            <View style={styles.card1}>
               <View style={{alignItems: "center", marginVertical: 10}}> 
               <Text style={styles.title}>Dados Pessoais</Text>
-              <Image
+              {/* <Image
                 source = {{uri: conta.imagem}}
                 style = {{width: 100, height: 100, borderRadius: 50, borderWidth: 1, marginTop: 10}}
-              />
+              /> */}
             </View>
              
               <Text style={styles.text}>Nome: {conta.nome}</Text>

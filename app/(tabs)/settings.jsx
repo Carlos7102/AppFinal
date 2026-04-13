@@ -15,6 +15,7 @@ export default function Settings(){
                 </View>
             </View>
 
+            <View style={{backgroundColor: "white", height: 2, width: "100%"}}></View>
             <View style={styles.container}>
                 <Text style={styles.texto}>Temas</Text>
                 <View style={styles.card2}>
@@ -24,6 +25,11 @@ export default function Settings(){
                 <View style={styles.card2}>
                     <Text>Dark</Text>
                     <TouchableOpacity></TouchableOpacity>
+                </View>
+
+                <Text>oo</Text>
+                <View>
+                    <View>llll</View>
                 </View>
             </View>
         </View>
