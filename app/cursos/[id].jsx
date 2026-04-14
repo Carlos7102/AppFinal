@@ -21,18 +21,22 @@ export default function Cursos(){
     const image = require('../../assets/images/fundo2.jpg')
     
     return(
-         <ImageBackground source={image} resizeMode="cover" style={styles.image}> 
-        <ScrollView> 
-            <TouchableOpacity style={styles.botao}  onPress={() => router.push(`../`)}>
-               <Ionicons name="return-down-back" size={30} color="black" />
-           </TouchableOpacity>
+         //<ImageBackground source={image} resizeMode="cover" style={styles.image}> 
+        <ScrollView style={{backgroundColor: "#f5f5f5"}}> 
+        
            <View>
+            <TouchableOpacity style={styles.botao}  onPress={() => router.push(`/home`)}>
+               <Ionicons name="return-down-back" size={30} color="black" />
+           </TouchableOpacity> 
             <Image
             source={{uri: curso.logo }}
             style={{width: "100%", height: 200}}
             /> 
+             
+           
+                <Text style={styles.titulo}>{curso.nome}</Text>
             
-            <Text style={styles.titulo}>{curso.nome}</Text>
+           
             
             <Text style={styles.subtitulo}>- Sobre o curso:</Text>
             <Text style={styles.texto}>{curso.descricao}</Text>
@@ -46,14 +50,15 @@ export default function Cursos(){
             <TouchableOpacity  onPress={() => router.push(`/profs/${curso.id}`)}>
             <Image
              source={{uri: curso.fotoProfessor}}
-             style={{width: 60, height: 60, borderRadius: 40, marginLeft: 10}}
+             style={{width: 60, height: 60, borderRadius: 40, marginLeft: 10, borderWidth: 1}}
             />
             </TouchableOpacity>    
            
-            <Text style={{color: "white"}}>{curso.professor}</Text>
+            <Text style={{fontSize: 14}}>{curso.professor}</Text>
             </View> 
 
             <Text style={styles.subtitulo}>- Informações:</Text>
+            <View style={{alignItems: "center"}}>
             <View style={styles.card}>
 
                <View style={{flexDirection: "row"}}> 
@@ -88,9 +93,10 @@ export default function Cursos(){
                 <Text style={styles.texto2}> {curso.local}</Text>
 
             </View>
+            </View>
             <View style={{alignItems: "center"}}>
                <TouchableOpacity style={styles.bt}>
-                <Text style={{fontWeight: "700"}}>Participar</Text>
+                <Text style={{fontWeight: "700", color: "white"}}>Participar</Text>
             </TouchableOpacity>
             </View>
             
@@ -98,10 +104,9 @@ export default function Cursos(){
           
         </View>
 
-          
-        
         </ScrollView>
-           </ImageBackground>
+       
+          // </ImageBackground>
     )
 }
 
@@ -123,19 +128,19 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: "600",
         padding: 6,
-        color: "white",
+        //color: "white",
     },
     subtitulo:{
         marginTop: 7,
         fontSize: 17,
         fontWeight: "600",
         padding: 6,
-        color: "white",
+        //color: "white",
     },
     texto: {
         padding: 6,
         fontSize: 16,
-        color: "white",
+        //color: "white",
     },
     card: {
         backgroundColor: "white",
@@ -145,19 +150,20 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         justifyContent: "center",
         marginBottom: 30,
+        width: "95%"
     },
      texto1: {
         fontWeight: "700",
         fontSize: 15,
-        marginBottom: 2
+        marginBottom: 2,
     },
      texto2: {
     
     },
     bt: {
-        backgroundColor: "white",
+        backgroundColor: "black",
         marginBottom: 40,
-        width: 75,
+        width: 80,
         height: 40,
         alignItems: "center",
         justifyContent: "center",

@@ -1,62 +1,96 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput } from "react-native"
+import { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import { router } from "expo-router"
-import { useState } from "react"
 
-export default function SignIn(){
 
-    const [email, setEmail] = useState();
-    const [senha, setSenha] = useState();
+ const Stack = createNativeStackNavigator();
 
+
+export default function LoginScreen({ navigation }) {
+
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+
+   const isFormValid = email === 'ceduardo190706@gmail.com' && senha === '000';
+
+     const handleLogin = () => {
+    if (isFormValid) {
+      router.push('/home');
+    }
+  };
     return(
-        <View style={styles.container}>
-            <Image
-              source={{uri: '../../assets/images/logo.jpg'}}
-              style={{height: 150, width: 150, borderRadius: 100, marginTop: 100, marginBottom: 50}}
-            />
-            <TextInput
-              style={styles.input}
-              value={email}
-              placeholder="Email"
-            />
-            <TextInput
-              style={styles.input}
-              value={senha}
-              placeholder="Senha"
-            />
+         <View style={styles.container}>
+       
+       <Image
+         source={require("../../assets/images/logo.jpg")}
+         style={styles.logo}
+       />
+  
+       <TextInput
+         placeholder="Email"
+         value={email}
+         onChangeText={setEmail}
+         style={styles.input}
+         keyboardType="email-address"
+         autoCapitalize="none"
+       />
 
-            <TouchableOpacity style={styles.botao} onPress={() => router.push(`/home`)}>
-                <Text style={styles.textobt}>ENTRAR</Text>
-            </TouchableOpacity>
-        </View>
-    )
+       <TextInput
+         placeholder="Senha"
+         value={senha}
+         onChangeText={setSenha}
+         secureTextEntry
+         style={styles.input}
+       />
+
+       <TouchableOpacity
+         style={[styles.button, { backgroundColor: isFormValid ? '#4CAF50' : '#ccc' }]}
+         onPress={handleLogin}
+        disabled={!isFormValid}
+       >
+         <Text style={styles.buttonText}>Entrar</Text>
+       </TouchableOpacity>
+     </View>
+    );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: "center",
-       
-    },
-    input: {
-        backgroundColor: "white",
-        borderWidth: 1,
-        marginTop: 15,
-        width: "75%",
-        height: 47,
-        borderRadius: 10,
-        paddingLeft: 10,
-    },
-    botao: {
-       backgroundColor: "black",
-       width: 100,
-       height: 50,
-       marginTop: 25,
-       borderRadius: 10,
-       justifyContent: "center",
-       alignItems: "center",
-    },
-    textobt: {
-    color: "white",
-    fontWeight: "700",
-    }
-})
+  container: {
+    flex: 1,
+    
+    alignItems: 'center',
+    padding: 20,
+  },
+  logo: {
+    width: 150,
+    height: 150,
+    borderRadius: 80,
+    marginBottom: 30,
+    marginTop: 70,
+  },
+  input: {
+    width: '100%',
+    height: 50,
+    borderWidth: 1,
+    borderColor: '#252525',
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    marginBottom: 15,
+  },
+  button: {
+    width: '100%',
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+  },
+});
+
+

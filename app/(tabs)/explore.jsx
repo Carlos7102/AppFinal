@@ -1,5 +1,5 @@
 import { View, StyleSheet, TextInput, ScrollView, Image, Text, TouchableOpacity, ImageBackground } from 'react-native';
-import { playists } from "../../lib/videos"
+import { playlists } from "../../lib/playlists"
 import { cursos } from "../../lib/cursos"
 import { router } from "expo-router"
 import { useState } from "react"
@@ -8,14 +8,15 @@ export default function TabTwoScreen() {
 
   const image = require('../../assets/images/fundo.jpg')
 
-  const [p, setP] = useState(playists)
+  const [p, setP] = useState(playlists)
   const [busca, setBusca] = useState(``)
 
-   const playistsFiltered = p
-    .filter((playist) => playist.nomePLayist.toLowerCase().includes(busca.toLowerCase()))
+   const playlistsFiltered = p
+    .filter((playlist) => playlist.nomePLaylist.toLowerCase().includes(busca.toLowerCase()))
 
   return (
-     <ImageBackground source={image} resizeMode="cover" style={styles.image}> 
+    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+    
      <View style={styles.Container}>
 
        <TextInput
@@ -25,21 +26,27 @@ export default function TabTwoScreen() {
           onChangeText={setBusca}
         />
 
-        <Text style={styles.texto}>Videos</Text>
+         <View style={{borderWidth: 1, backgroundColor: "#fffcfc", marginLeft: 10, width: 100, height: 35, borderRadius: 10, justifyContent: "center", alignItems: "center", marginTop: 40, marginBottom: 20}}>
+            <Text style={styles.texto}>Playlists</Text>
+         </View> 
+        
 
        
-       <ScrollView style={{backgroundColor: "white", height: 200}} horizontal showsHorizontalScrollIndicator={false}>
+       <ScrollView style={{height: 200}} horizontal showsHorizontalScrollIndicator={false}>
 
-       <View style={{borderRadius: 20, flexDirection: "row",backgroundColor: "gray", height: 260}}> 
+       <View style={{borderRadius: 20, flexDirection: "row",backgroundColor: "#ffffff", height: 260}}> 
+ 
+        {playlistsFiltered.map((playlist, index) => (
 
-        {playistsFiltered.map((playist, index) => (
-
-            <TouchableOpacity key={playist.id + index} style={styles.card} onPress={() => router.push(`/videos/${playist.id}`)}>  
+            <TouchableOpacity key={playlist.id + index} style={styles.card} onPress={() => router.push(`/playlists/${playlist.id}-0`)}>  
                <Image
-                  source={{uri: playist.fotoCapa}}
+                  source={{uri: playlist.fotoCapa}}
                   style={{height: "100%", width: "100%", borderRadius: 19}}
                />
-               <Text style={{color: "white", fontWeight: "700", fontSize: 16, marginTop: 9}}>{playist.nomePLayist}</Text>
+               <View style={{alignItems: "center"}}>
+                    <Text style={{fontWeight: "800", fontSize: 16, marginVertical: 15}}>{playlist.nomePLaylist}</Text>
+               </View>
+               
             </TouchableOpacity>
         ))}
 
@@ -47,20 +54,7 @@ export default function TabTwoScreen() {
 
         </ScrollView> 
 
-
-
-        {/* <Text style={styles.texto}>Cursos</Text>
-
-        <ScrollView style={{backgroundColor: "white"}} horizontal showsHorizontalScrollIndicator={false}>
-        <View style={{borderRadius: 20, flexDirection: "row", backgroundColor: "gray", height: 220, alignItems: "center"}}> 
-        {videos.map((video, index) => (
-            <TouchableOpacity key={video.titulo + index} style={styles.card}>
-                  
-            </TouchableOpacity>
-        ))}
-        </View>
-        </ScrollView>  */}
-        
+      
 
      </View>
      </ImageBackground>
@@ -70,7 +64,6 @@ export default function TabTwoScreen() {
 const styles = StyleSheet.create({
   Container: {
     flex: 1,
-    backgroundColor: "white"
   },
   Input: {
     backgroundColor: "white",
@@ -84,13 +77,13 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
   },
   texto: {
-    marginTop: 32,
-    marginLeft: 30,
-    fontWeight: "700",
-    fontSize: 20,
+  
+    fontWeight: "500",
+    fontSize: 17,
+   
+    color: "black",
   },
   card: {
-    backgroundolor: "white",
     height:190,
     width: 300,
     borderRadius: 20,

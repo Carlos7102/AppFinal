@@ -11,7 +11,9 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useState } from "react"
 
 
+
 export default function HomeScreen() {
+
 
   const [c, setC] = useState(cursos)
   const [busca, setBusca] = useState(``)
@@ -28,24 +30,21 @@ export default function HomeScreen() {
   const image = require('../../assets/images/fundo.jpg')
 
   return (
-     
-
-     <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-
     
+     <ImageBackground source={image} resizeMode="cover" style={styles.image}>
 
     <View style={styles.Container}>
 
       <View style={{ width: "100%", height: 90, marginTop: 28}}>
         
     
-          <TouchableOpacity style={{width: 0, height: 0}} onPress={() => router.push(`/contas/${contas.id}`)}>
+          <TouchableOpacity style={{width: 0, height: 0}} onPress={() => router.push(`/contas/0`)}>
             {contas.map((contas, index ) => (                 
 
             <Image
             key={contas.nome + index}
              source={{uri: contas.imagem}}
-             style={{width: 60, height: 60, borderRadius: 40, marginTop: 15, marginLeft: 290, borderWidth: 2}}
+             style={{width: 60, height: 60, borderRadius: 40, marginTop: 15, marginLeft: 290, borderWidth: 1}}
             />
             ))}
            
@@ -88,6 +87,7 @@ export default function HomeScreen() {
 
             <Text style={{fontSize: 19, fontWeight: "600", marginTop: 5}}>{curso.nome}</Text>
             
+<View style={{width: "96%", marginTop: 10, paddingBottom: 16, borderWidth: 1, borderColor: "gray", borderRadius: 10}}> 
             <View style={{flexDirection: "row"}}>
 
               <View style={styles.cardBotao}>
@@ -115,6 +115,7 @@ export default function HomeScreen() {
            </View>
  
           </View>
+</View>
 
           </TouchableOpacity>
         ))}

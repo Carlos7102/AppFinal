@@ -4,7 +4,7 @@ export default function Welcome(){
     return(
         <View>
             <TouchableOpacity onPress={() => router.push(`/(tabs)/home`)}>
-                <Text>mmmmmm</Text>
+                <Text></Text>
             </TouchableOpacity>
         </View>
     )

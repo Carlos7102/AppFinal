@@ -1,69 +1,103 @@
-import { View, Text, ImageBackground, StyleSheet, TouchableOpacity, Image } from "react-native"
+import { View, Text, ImageBackground, StyleSheet, TouchableOpacity, Image, Linking } from "react-native"
 import Fontisto from '@expo/vector-icons/Fontisto';
 
 export default function Settings(){
 
     const image = require('../../assets/images/fundo2.jpg')
 
+    const instagramUrl = 'https://www.instagram.com/carlos_ekk/';
+
+    const abrirRedeSocial = async (url) => {
+  // Verifica se o app suporta o link
+  const supported = await Linking.canOpenURL(url);
+
+  if (supported) {
+    // Abre o link
+    await Linking.openURL(url);
+  } else {
+    Alert.alert(`Não foi possível abrir o link: ${url}`);
+  }
+};
+
+
     return(
-        <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-        <View>
-            <View style={styles.card1}>
-                <Text style={styles.texto}>Configurações</Text>
-                <View style={{backgroundColor: "white", width: 45, height: 45, borderRadius: 30, alignItems: "center", justifyContent: "center"}}>
-                 <Fontisto name="player-settings" size={25} color="black"/>
-                </View>
-            </View>
+         <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+        <View style={styles.container}>
+           <Text style={styles.titulo}>CONFIGURAÇÕES</Text>
 
-            <View style={{backgroundColor: "white", height: 2, width: "100%"}}></View>
-            <View style={styles.container}>
-                <Text style={styles.texto}>Temas</Text>
-                <View style={styles.card2}>
-                    <Text>Light</Text>
-                    <TouchableOpacity style={{}}></TouchableOpacity>
-                </View>
-                <View style={styles.card2}>
-                    <Text>Dark</Text>
-                    <TouchableOpacity></TouchableOpacity>
-                </View>
+           <View style={{backgroundColor: "white", height: 1, width: "100%", marginTop: 10,}}></View>
 
-                <Text>oo</Text>
-                <View>
-                    <View>llll</View>
-                </View>
-            </View>
+           <Text style={styles.texto}>Termos</Text>
+           <View style={styles.card}>
+            <Text>Termos dos App</Text>
+            <TouchableOpacity    onPress={() => abrirTermos("")}> 
+            <Image
+              source={{uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7xhfxvM1ko8LtIUKQEQuVLcUCkbcNQXlZaw&s"}}
+              style={{height: 50, width: 50, borderRadius: 10, marginVertical: 10}}
+            />
+            </TouchableOpacity>
+           </View>
+
+           <Text style={styles.texto}>App Info</Text>
+           <View style={styles.card}>
+            <Text style={styles.texto2}>Contact Us</Text>
+
+            <TouchableOpacity   onPress={() => abrirRedeSocial(instagramUrl)}>
+                <Image
+                  source={{uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuH7c5cLpGehi0b4iQk90fXUzC9p7Ebla13w&s"}}
+                  style={{height: 50, width: 50, borderRadius: 10, marginVertical: 10}}
+                />
+                
+            </TouchableOpacity>
+            <Text style={styles.texto3}>Talk to the devs.</Text>
+
+            <Text tyle={styles.texto2}> © 2026-2026 kotlin technologies. ALL right reserved. Artwork made with kotlin by Carlos eduardo.</Text>
+           </View>
+
+
         </View>
-        </ImageBackground>
+        </ImageBackground> 
     )
 }
 
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         alignItems: "center",
+    },
+    titulo: {
+      color: "white",
+      fontWeight: "800",
+      marginTop: 40,
+      fontSize: 17,
     },
   image: {
     flex: 1, 
   },
   texto: {
     color: "white",
-    fontWeight: "700"
+    fontWeight: "700",
+    marginTop: 40
   },
-  card1: {
-    marginTop: 15,
-    alignItems: "center",
-    flexDirection: "row",
-    gap: 10,
-
+  card: {
+   backgroundColor: "#D9D9D9",
+   width:"90%",
+   height: 250,
+   borderRadius: 30,
+   marginTop: 10,
+   
+   alignItems: "center",
   },
-  card2: {
-   backgroundColor: "white",
-   width: "70%",
-   height: 35,
-   marginTop: 5,
-   borderRadius: 20,
-   justifyContent: "center",
-   paddingLeft: 10
-  }
-
+  texto2: {
+    fontWeight: "600",
+    marginTop: 5,
+    fontSize: 17,
+  },
+  texto3: {
+    fontWeight: "600",
+    marginBottom: 60,
+    marginTop: 20,
+    fontSize: 17,
+  },
 })

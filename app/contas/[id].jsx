@@ -24,10 +24,10 @@ export default function Contas(){
            <View style={styles.card1}>
               <View style={{alignItems: "center", marginVertical: 10}}> 
               <Text style={styles.title}>Dados Pessoais</Text>
-              {/* <Image
+              <Image
                 source = {{uri: conta.imagem}}
                 style = {{width: 100, height: 100, borderRadius: 50, borderWidth: 1, marginTop: 10}}
-              /> */}
+              />
             </View>
              
               <Text style={styles.text}>Nome: {conta.nome}</Text>
@@ -39,11 +39,6 @@ export default function Contas(){
               <TouchableOpacity style={styles.botao2}>
                 <Text style={{fontWeight: "500"}}>Editar Perfil</Text>
               </TouchableOpacity>
-
-
-              <View style={styles.card2}>
-
-              </View>
         </View>
         </ImageBackground>
     )
@@ -95,12 +90,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 20,
     marginHorizontal: 155,
-  },
-  card2: {
-    backgroundColor: "gray",
-    width: "95%",
-    height: 200,
-    borderRadius: 30, 
-    marginTop: 20,
   }
 })
