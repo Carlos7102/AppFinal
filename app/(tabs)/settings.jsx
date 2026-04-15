@@ -27,17 +27,6 @@ export default function Settings(){
 
            <View style={{backgroundColor: "white", height: 1, width: "100%", marginTop: 10,}}></View>
 
-           <Text style={styles.texto}>Termos</Text>
-           <View style={styles.card}>
-            <Text>Termos dos App</Text>
-            <TouchableOpacity    onPress={() => abrirTermos("")}> 
-            <Image
-              source={{uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7xhfxvM1ko8LtIUKQEQuVLcUCkbcNQXlZaw&s"}}
-              style={{height: 50, width: 50, borderRadius: 10, marginVertical: 10}}
-            />
-            </TouchableOpacity>
-           </View>
-
            <Text style={styles.texto}>App Info</Text>
            <View style={styles.card}>
             <Text style={styles.texto2}>Contact Us</Text>
@@ -51,7 +40,7 @@ export default function Settings(){
             </TouchableOpacity>
             <Text style={styles.texto3}>Talk to the devs.</Text>
 
-            <Text tyle={styles.texto2}> © 2026-2026 kotlin technologies. ALL right reserved. Artwork made with kotlin by Carlos eduardo.</Text>
+            <Text tyle={styles.texto2}>  © 2026-2026 kotlin technologies. ALL right reserved. Artwork made with kotlin by Carlos eduardo.</Text>
            </View>
 
 
@@ -82,8 +71,8 @@ const styles = StyleSheet.create({
   },
   card: {
    backgroundColor: "#D9D9D9",
-   width:"90%",
-   height: 250,
+   width:"95%",
+   height: 270,
    borderRadius: 30,
    marginTop: 10,
    
@@ -96,7 +85,7 @@ const styles = StyleSheet.create({
   },
   texto3: {
     fontWeight: "600",
-    marginBottom: 60,
+    marginBottom: 70,
     marginTop: 20,
     fontSize: 17,
   },

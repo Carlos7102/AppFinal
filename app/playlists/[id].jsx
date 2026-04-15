@@ -39,7 +39,7 @@ export default function Playlist(){
     const descricao = playlists[Number(playlistId)].videos[Number(videoId)].descricao;
 
     return(
-        <ImageBackground source={image} resizeMode="cover" style={styles.image}> 
+       <ImageBackground source={image} resizeMode="cover" style={styles.image}> 
        <View style={styles.container}>
           
         <YoutubePlayer
@@ -52,13 +52,12 @@ export default function Playlist(){
         <Text style={styles.titulo}>{titulo}</Text>
         <Text style={styles.texto}>{descricao}</Text>
         <ScrollView> 
-
                 {playlist.videos.map((video, index) => (  
                  <View  key={video.videoid + index}  style={{flexDirection: "row", alignItems: "center", gap: 20 }}>
                     <TouchableOpacity  style={styles.cardvid}  onPress={() => router.push(`/playlists/${playlist.id}-${video.videoid}`)}>
                          <Image
                             source={{uri: video.fotoCapa}}
-                             style={{height: "100%", width: "100%", borderRadius: 28, borderWidth: 2, borderColor: "white"}}
+                            style={{height: "100%", width: "100%", borderRadius: 28, borderWidth: 2, borderColor: "white"}}
                          />
                     </TouchableOpacity>  
                     <Text style={styles.texto}>{video.titulo.slice(0, 16)}</Text>
@@ -81,7 +80,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     btsaida: {
-        marginTop: 50,
+        marginTop: 30,
         borderWidth: 1,
         width: 60,
         borderRadius: 50,
@@ -91,11 +90,6 @@ const styles = StyleSheet.create({
         marginLeft: 8,
         backgroundColor: "white",
     },
-    container2: {
-    flex: 1,
-    height: 100,
-    marginTop: Constants.statusBarHeight,
-  },
   titulo: {
     fontSize: 18,
     fontWeight: "600",
@@ -107,7 +101,8 @@ const styles = StyleSheet.create({
     paddingLeft: 6, 
     marginTop: 10,
     color: "white",
-    fontWeight: "500"
+    fontWeight: "500",
+    marginBottom: 8,
   },
   cardvid: {
     borderWidth: 1,

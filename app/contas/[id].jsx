@@ -32,13 +32,16 @@ export default function Contas(){
              
               <Text style={styles.text}>Nome: {conta.nome}</Text>
               <Text style={styles.text}>Idade: {conta.idade}</Text>
-              <Text style={styles.text}>Genero: {conta.genero}</Text>
+              <Text style={styles.text}>Gênero: {conta.genero}</Text>
               <Text style={styles.text}>Escola: {conta.escola}</Text>
             </View>
            
-              <TouchableOpacity style={styles.botao2}>
+              {/* <TouchableOpacity style={styles.botao2}>
                 <Text style={{fontWeight: "500"}}>Editar Perfil</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
+
+
+      
         </View>
         </ImageBackground>
     )
@@ -74,8 +77,8 @@ const styles = StyleSheet.create({
     },
     text:{
       color: "white",
-      fontWeight: "500",
-      marginTop: 2,
+      fontWeight: "400",
+      marginTop: 4,
       marginLeft: 15,
     },
     image: {
@@ -90,5 +93,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 20,
     marginHorizontal: 155,
+  },
+  card2: {
+    backgroundColor: "gray",
+    width: "95%",
+    height: 200,
+    borderRadius: 30, 
+    marginTop: 20,
   }
 })

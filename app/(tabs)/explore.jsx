@@ -26,7 +26,7 @@ export default function TabTwoScreen() {
           onChangeText={setBusca}
         />
 
-         <View style={{borderWidth: 1, backgroundColor: "#fffcfc", marginLeft: 10, width: 100, height: 35, borderRadius: 10, justifyContent: "center", alignItems: "center", marginTop: 40, marginBottom: 20}}>
+         <View style={{ marginLeft: 22, borderWidth: 1, backgroundColor: "#fffcfc", width: 100, height: 35, borderRadius: 10, justifyContent: "center", alignItems: "center", marginTop: 40, marginBottom: 20}}>
             <Text style={styles.texto}>Playlists</Text>
          </View> 
         
@@ -34,7 +34,7 @@ export default function TabTwoScreen() {
        
        <ScrollView style={{height: 200}} horizontal showsHorizontalScrollIndicator={false}>
 
-       <View style={{borderRadius: 20, flexDirection: "row",backgroundColor: "#ffffff", height: 260}}> 
+       <View style={{borderRadius: 20, flexDirection: "row",backgroundColor: "#ffffff", height: 260, marginLeft: 22}}> 
  
         {playlistsFiltered.map((playlist, index) => (
 

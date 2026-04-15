@@ -29,22 +29,22 @@ export default function Prof(){
                />
                  <Text style={{fontWeight: "800", color: "white"}}>PROFESSOR</Text>
                </View>
-               <View style={{flexDirection: "row"}}>
+               <View style={{flexDirection: ""}}>
                   <Text style={styles.texto1}>Nome:</Text>
                   <Text style={styles.texto}>{prof.professor}</Text>
                </View>
 
-              <View style={{flexDirection: "row"}}>
-                <Text style={styles.texto1}>Materia:</Text>
-                <Text style={styles.texto}>{prof.materiaProfessor}</Text>
+              <View style={{flexDirection: ""}}>
+                <Text style={styles.texto1}>Graduação:</Text>
+                <Text style={styles.texto}>{prof.graduacaoProfessor}</Text>
               </View>
 
-              <View style={{flexDirection: "row"}}>
+              <View style={{flexDirection: ""}}>
                 <Text style={styles.texto1}>Escola:</Text>
                 <Text style={styles.texto}>{prof.escolaProfessor}</Text>
               </View>
 
-              <View style={{flexDirection: "row"}}>
+              <View style={{flexDirection: ""}}>
                 <Text style={styles.texto1}>Curso:</Text>
                 <Text style={styles.texto}>{prof.cursosProfesssor}</Text>
               </View>
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     card1: {
         backgroundColor: '#2b47d2',
         borderRadius: 30,
-        height: 250,
+        height: 390,
         width: "95%",
         borderWidth: 1,
     },
@@ -89,8 +89,9 @@ const styles = StyleSheet.create({
     },
     texto: {
         color: "white",
-        marginLeft: 10,
+        marginLeft: 6,
         marginTop: 4,
+        fontSize: 13,
         
     },
     image: {

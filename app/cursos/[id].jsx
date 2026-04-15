@@ -28,15 +28,14 @@ export default function Cursos(){
             <TouchableOpacity style={styles.botao}  onPress={() => router.push(`/home`)}>
                <Ionicons name="return-down-back" size={30} color="black" />
            </TouchableOpacity> 
-            <Image
+            {/* <Image
             source={{uri: curso.logo }}
             style={{width: "100%", height: 200}}
-            /> 
+            />  */}
              
+             <View style={{backgroundColor: "black", width: "100%", height: 1}}></View>
            
-                <Text style={styles.titulo}>{curso.nome}</Text>
-            
-           
+            <Text style={styles.titulo}>{curso.nome}</Text>
             
             <Text style={styles.subtitulo}>- Sobre o curso:</Text>
             <Text style={styles.texto}>{curso.descricao}</Text>
@@ -90,7 +89,7 @@ export default function Cursos(){
                  <Feather name="map-pin" size={17} color="black" />
                 <Text style={styles.texto1}> local: </Text>
                 </View>
-                <Text style={styles.texto2}> {curso.local}</Text>
+                <Text style={styles.texto2}> {curso.localEspc}</Text>
 
             </View>
             </View>
@@ -146,7 +145,7 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         borderRadius: 30,
         borderWidth: 1,
-        height: 230,
+        height: 300,
         paddingLeft: 10,
         justifyContent: "center",
         marginBottom: 30,

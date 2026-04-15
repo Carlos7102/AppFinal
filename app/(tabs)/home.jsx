@@ -10,14 +10,14 @@ import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useState } from "react"
 
-
+// import { Redirect } from 'expo-router';
+// import { email, senha  } from "../(login)/index"
 
 export default function HomeScreen() {
-
+     
 
   const [c, setC] = useState(cursos)
   const [busca, setBusca] = useState(``)
-
 
   const [tipo, setTipo] = useState(`Ambos`)
 
@@ -30,14 +30,11 @@ export default function HomeScreen() {
   const image = require('../../assets/images/fundo.jpg')
 
   return (
-    
      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
 
     <View style={styles.Container}>
 
-      <View style={{ width: "100%", height: 90, marginTop: 28}}>
-        
-    
+      <View style={{ width: "100%", height: 90, marginTop: 28}}>     
           <TouchableOpacity style={{width: 0, height: 0}} onPress={() => router.push(`/contas/0`)}>
             {contas.map((contas, index ) => (                 
 
@@ -80,14 +77,14 @@ export default function HomeScreen() {
            <View style={{flexDirection: "row", alignItems: "center", gap: 10}}> 
             <Image
              source={{uri: curso.logo}}
-             style={{height: 30, width: 30, borderRadius: 30}}
+             style={{height: 30, width: 30, borderRadius: 30, borderWidth: 1}}
             />
             <Text style={styles.textoBt2}>{curso.categoria}</Text>
            </View>
 
             <Text style={{fontSize: 19, fontWeight: "600", marginTop: 5}}>{curso.nome}</Text>
             
-<View style={{width: "96%", marginTop: 10, paddingBottom: 16, borderWidth: 1, borderColor: "gray", borderRadius: 10}}> 
+           <View style={{width: "96%", marginTop: 10, paddingBottom: 16, borderWidth: 1, borderColor: "gray", borderRadius: 10}}> 
             <View style={{flexDirection: "row"}}>
 
               <View style={styles.cardBotao}>
@@ -115,22 +112,20 @@ export default function HomeScreen() {
            </View>
  
           </View>
-</View>
+         </View>
 
           </TouchableOpacity>
         ))}
       </ScrollView>
-
      
     </View>
-     </ImageBackground>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   Container: {
     flex: 1, 
-
   },
   ImagemLogo: {
     width: 200, 
@@ -190,8 +185,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: 110,
   },
-
-    image: {
+  image: {
     flex: 1,
     justifyContent: 'center', 
   },

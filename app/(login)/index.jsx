@@ -25,9 +25,10 @@ export default function LoginScreen({ navigation }) {
          <View style={styles.container}>
        
        <Image
-         source={require("../../assets/images/logo.jpg")}
+         source={require("../../assets/images/logo.png")}
          style={styles.logo}
        />
+       <Text style={styles.titulo}>LearnHub</Text>
   
        <TextInput
          placeholder="Email"
@@ -68,8 +69,9 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     borderRadius: 80,
-    marginBottom: 30,
-    marginTop: 70,
+    marginBottom: 9,
+    marginTop: 120,
+    borderWidth: 2,
   },
   input: {
     width: '100%',
@@ -91,6 +93,11 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
   },
+  titulo: {
+    fontSize: 20,
+    marginBottom: 40,
+    fontWeight: "600",
+    
+    
+  }
 });
-
-
